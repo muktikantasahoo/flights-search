@@ -18,9 +18,6 @@ public class Flight
 	private String travelDate;
 	
 	
-	
-	
-	
 	public Flight(String flightNumber, String airlineName, String sourceCity, String destinationCity,
 			Date departureDate, Date arrivalDate, String duration, String noOfStop, Double price, String travelDate) {
 		super();
@@ -139,7 +136,16 @@ public class Flight
 	
 	public static Comparator<Flight> durationComparator = new Comparator<Flight>() {
 		public int compare(Flight o1, Flight o2) {
-			return o2.getDuration().compareTo(o1.getDuration());
+			Integer i1=Integer.valueOf(o1.getDuration());
+			Integer i2=Integer.valueOf(o2.getDuration());
+			if (i2 > i1) {
+				return 1;
+			} else if (i2.equals(i1)) {
+				return 0;
+			}
+
+			return -1;
+		}
 		}
 	};
 
